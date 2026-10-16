@@ -1,7 +1,7 @@
 /**
  * Configurações da loja: tudo que é específico da loja fica aqui.
  *
- * A Quilate Veículos é FICTÍCIA (projeto de demonstração). Nome, endereço, CNPJ,
+ * A Aval Veículos é FICTÍCIA (projeto de demonstração). Nome, endereço, CNPJ,
  * pessoas e depoimentos são inventados. WhatsApp e Instagram são os da Risen Studio.
  */
 
@@ -25,7 +25,7 @@ export type Horario = {
 };
 
 export const loja = {
-  nome: "Quilate Veículos",
+  nome: "Aval Veículos",
   descricaoCurta: "Seminovos com procedência em Salto/SP",
   descricao:
     "Loja de veículos seminovos em Salto/SP. Carros com procedência verificada, laudo cautelar e garantia. Aceitamos seu usado na troca e simulamos o financiamento pelo WhatsApp.",
@@ -50,8 +50,8 @@ export const loja = {
   telefone: "+5511989587895",
   telefoneExibicao: "(11) 98958-7895",
 
-  mensagemPadrao: "Olá! Vim pelo site da Quilate Veículos e gostaria de mais informações.",
-  mensagemEstoque: "Olá! Vim pelo site da Quilate Veículos. Pode me mandar os carros que estão disponíveis agora?",
+  mensagemPadrao: "Olá! Vim pelo site da Aval Veículos e gostaria de mais informações.",
+  mensagemEstoque: "Olá! Vim pelo site da Aval Veículos. Pode me mandar os carros que estão disponíveis agora?",
 
   endereco: {
     logradouro: "Rua das Pedras, 500",
@@ -79,7 +79,7 @@ export const loja = {
   instagram: { usuario: "@risenstudio.dev", url: "https://www.instagram.com/risenstudio.dev/" },
 
   cnpj: "00.000.000/0001-00",
-  razaoSocial: "Quilate Veículos Ltda.",
+  razaoSocial: "Aval Veículos Ltda.",
 
   fundacao: "2025",
   garantia: "3 meses",
@@ -89,11 +89,11 @@ export const loja = {
 
   sobre: {
     historia: [
-      "A Quilate Veículos abriu as portas em 2025, em Salto. É uma loja nova e de atendimento próximo: quem mostra o carro, tira as dúvidas e faz a simulação do financiamento é a mesma pessoa, do primeiro contato até a entrega.",
+      "A Aval Veículos abriu as portas em 2025, em Salto. É uma loja nova e de atendimento próximo: quem mostra o carro, tira as dúvidas e faz a simulação do financiamento é a mesma pessoa, do primeiro contato até a entrega.",
       "Antes de entrar no pátio, todo carro passa por consulta de débitos e restrições, histórico de leilão e sinistro e laudo cautelar. Assim você compra sabendo exatamente o que está levando.",
     ],
     equipe:
-      "Quem atende você: Rafael Moreira, fundador e consultor de vendas da Quilate. Ele também faz as simulações de financiamento.",
+      "Quem atende você: Rafael Moreira, fundador e consultor de vendas da Aval. Ele também faz as simulações de financiamento.",
     foto: "/img/patio.webp",
     fotoAlt: "Pátio com fileiras de carros seminovos estacionados",
   },

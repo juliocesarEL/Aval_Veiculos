@@ -10,7 +10,7 @@ type Props = {
   className?: string;
 };
 
-/** Cabeçalho padrão das seções: sobretítulo, h2 (com id para aria-labelledby) e linha lapidada. */
+/** Cabeçalho padrão das seções: sobretítulo, h2 (com id para aria-labelledby) e linha de destaque. */
 export function SectionHeading({ id, eyebrow, titulo, descricao, tom = "claro", alinhamento = "esquerda", className = "" }: Props) {
   const escuro = tom === "escuro";
   const centro = alinhamento === "centro";
@@ -21,13 +21,13 @@ export function SectionHeading({ id, eyebrow, titulo, descricao, tom = "claro", 
           escuro ? "text-primary-light" : "text-primary"
         }`}
       >
-        <span aria-hidden="true" className="inline-block size-1.5 rotate-45 bg-current" />
+        <span aria-hidden="true" className="inline-block size-1.5 rounded-full bg-current" />
         {eyebrow}
       </p>
       <h2 id={id} className={`text-h2 font-extrabold ${escuro ? "text-white" : "text-ink"}`}>
         {titulo}
       </h2>
-      <span className={`facet-rule mt-5 ${centro ? "mx-auto" : ""}`} aria-hidden="true" />
+      <span className={`accent-rule mt-5 ${centro ? "mx-auto" : ""}`} aria-hidden="true" />
       {descricao && (
         <p className={`measure mt-5 text-lead ${centro ? "mx-auto" : ""} ${escuro ? "text-white/75" : "text-slate"}`}>{descricao}</p>
       )}

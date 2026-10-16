@@ -57,26 +57,13 @@
   }
 }
 
-/* Losango do ícone: gira 45° ao entrar na tela */
-.gem-tile,
-.gem-tile > * {
+/* Quadro do ícone: cresce girando de leve ao aparecer na tela */
+.icon-tile {
   transition: transform 1.1s var(--ease-spring) calc(var(--d, 0ms) + 150ms);
 }
 
-.gem-tile {
-  transform: rotate(45deg);
-}
-
-.gem-tile > * {
-  transform: rotate(-45deg);
-}
-
-html.js [data-reveal]:not(.is-in) .gem-tile {
-  transform: rotate(-45deg) scale(0.6);
-}
-
-html.js [data-reveal]:not(.is-in) .gem-tile > * {
-  transform: rotate(45deg);
+html.js [data-reveal]:not(.is-in) .icon-tile {
+  transform: rotate(-12deg) scale(0.6);
 }
 
 /* Acordeão do FAQ: anima a altura com grid-template-rows (0fr → 1fr) */

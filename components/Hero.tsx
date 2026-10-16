@@ -19,42 +19,39 @@ const faixa = [
   "Salto/SP",
 ];
 
-/* Posições em % da caixa da marca (viewBox -1 -0.5 50 39 da logo): x = (x+1)/50, y = (y+0.5)/39 */
-const px = (x: number) => ((x + 1) / 50) * 100;
-const py = (y: number) => ((y + 0.5) / 39) * 100;
-const pct = (x: number, y: number) => ({ left: `${px(x)}%`, top: `${py(y)}%` });
-
 /* Máscara com o desenho da marca: o reflexo passa só sobre o traço, nunca no vazio */
 const MASCARA_MARCA = `url("data:image/svg+xml,${encodeURIComponent(
-  `<svg xmlns='http://www.w3.org/2000/svg' viewBox='${MARCA.viewBox}'><g fill='none' stroke='#000' stroke-linejoin='round' stroke-linecap='round'><polygon points='${MARCA.contorno}' stroke-width='${MARCA.traco}'/><path d='${MARCA.cintura}' stroke-width='${MARCA.traco}'/><path d='${MARCA.facetas}' stroke-width='${MARCA.tracoFacetas}'/></g></svg>`,
+  `<svg xmlns='http://www.w3.org/2000/svg' viewBox='${MARCA.viewBox}'><g fill='none' stroke='#000' stroke-linejoin='round' stroke-linecap='round'><path d='${MARCA.margens}' stroke-width='${MARCA.traco}'/><path d='${MARCA.faixa}' stroke-width='${MARCA.tracoFaixa}'/></g></svg>`,
 )}")`;
 
-/* Brilhos nos vértices da marca */
-const BRILHOS = [
-  { x: 10.5, y: 1.5, d: "1.6s", tam: "9%" },
-  { x: 46.5, y: 11.5, d: "2.8s", tam: "7%" },
-  { x: 24, y: 35.5, d: "4.1s", tam: "8%" },
-  { x: 37.5, y: 1.5, d: "5.2s", tam: "6%" },
-];
+/* Traços da faixa central, do primeiro plano ao horizonte */
+const TRACOS_FAIXA = MARCA.faixa.split("M").filter(Boolean).map((t) => `M${t}`);
 
 /**
- * A marca da logo em tamanho grande, com um único degradê. Fica parada;
- * só o reflexo e as cintilações nos vértices se movem.
+ * A marca da logo em tamanho grande, com um único degradê. Fica parada; só o reflexo
+ * passa sobre o traço e a faixa central acende em sequência, como se a estrada corresse.
  */
-function DiamanteMarca() {
+function EstradaMarca() {
   return (
     <div aria-hidden="true" className="relative aspect-[50/39] w-full">
       <svg viewBox={MARCA.viewBox} className="absolute inset-0 h-full w-full overflow-visible" focusable="false">
         <defs>
-          <linearGradient id="hero-marca" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="37">
+          <linearGradient id="hero-marca" gradientUnits="userSpaceOnUse" x1="0" y1="37" x2="0" y2="0">
             <stop offset="0" stopColor="#5FC59B" />
             <stop offset="1" stopColor="#2D6A53" />
           </linearGradient>
         </defs>
         <g fill="none" stroke="url(#hero-marca)" strokeLinejoin="round" strokeLinecap="round">
-          <polygon points={MARCA.contorno} strokeWidth={MARCA.traco} />
-          <path d={MARCA.cintura} strokeWidth={MARCA.traco} />
-          <path d={MARCA.facetas} strokeWidth={MARCA.tracoFacetas} />
+          <path d={MARCA.margens} strokeWidth={MARCA.traco} />
+          {TRACOS_FAIXA.map((d, i) => (
+            <path
+              key={d}
+              d={d}
+              strokeWidth={MARCA.tracoFaixa}
+              className="lane-dash"
+              style={{ "--d": `${i * 0.35}s` } as React.CSSProperties}
+            />
+          ))}
         </g>
       </svg>
 
@@ -64,18 +61,6 @@ function DiamanteMarca() {
       >
         <div className="sheen absolute inset-y-0 left-0 w-1/4 bg-[linear-gradient(90deg,transparent,rgb(255_255_255/0.65),transparent)]" />
       </div>
-
-      {BRILHOS.map((b) => (
-        <span
-          key={b.d}
-          className="absolute aspect-square -translate-x-1/2 -translate-y-1/2"
-          style={{ ...pct(b.x, b.y), width: b.tam }}
-        >
-          <svg viewBox="-1 -1 2 2" className="twinkle block h-full w-full" style={{ "--d": b.d } as React.CSSProperties}>
-            <path d="M0,-1 Q0,0 1,0 Q0,0 0,1 Q0,0 -1,0 Q0,0 0,-1Z" fill="#e9fff5" />
-          </svg>
-        </span>
-      ))}
     </div>
   );
 }
@@ -87,7 +72,7 @@ export function Hero() {
       aria-labelledby="hero-titulo"
       className="on-dark relative isolate overflow-hidden bg-ink pt-[calc(4.5rem+env(safe-area-inset-top))] text-white"
     >
-      {/* Atmosfera: linhas de lapidação e brilhos esmeralda */}
+      {/* Atmosfera: linhas diagonais e luzes verdes */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <svg className="absolute inset-0 h-full w-full opacity-[0.07]" preserveAspectRatio="none" viewBox="0 0 100 100">
           {Array.from({ length: 14 }, (_, i) => (
@@ -149,7 +134,7 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Visual: foto em destaque + diamante + checklist */}
+        {/* Visual: foto em destaque + marca + checklist */}
         <div className="relative mx-auto w-full max-w-2xl lg:max-w-none short:max-w-md">
           <div className="relative aspect-[4/3] overflow-hidden rounded-card border border-white/10 shadow-[0_40px_80px_-30px_rgb(0_0_0/0.8)]">
             <Image
@@ -165,9 +150,9 @@ export function Hero() {
             <div aria-hidden="true" className="absolute inset-0 bg-linear-to-t from-ink/80 via-ink/10 to-transparent" />
           </div>
 
-          {/* Diamante da marca como emblema, saindo do canto do quadro */}
+          {/* Marca como emblema, saindo do canto do quadro */}
           <div className="absolute -right-3 -top-8 w-[26%] drop-shadow-[0_10px_24px_rgb(0_0_0/0.6)] sm:-right-6 sm:-top-12 sm:w-[24%]">
-            <DiamanteMarca />
+            <EstradaMarca />
           </div>
 
           {/* Checklist de entrada: sobreposto à base da foto */}
@@ -211,7 +196,7 @@ export function Hero() {
                 {faixa.map((item) => (
                   <li key={item} className="flex items-center gap-8 pr-8 font-display text-sm font-bold uppercase tracking-[0.16em] text-white sm:text-base">
                     {item}
-                    <span className="size-2 rotate-45 bg-primary-light" />
+                    <span className="size-2 rounded-full bg-primary-light" />
                   </li>
                 ))}
               </ul>

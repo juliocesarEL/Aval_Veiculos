@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Users } from "lucide-react";
 import { loja } from "@/data/loja";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { DiamondMark } from "@/components/ui/Logo";
+import { BrandMark } from "@/components/ui/Logo";
 
 export function Sobre() {
   return (
@@ -44,7 +44,7 @@ export function Sobre() {
               style={{ "--d": "400ms" } as React.CSSProperties}
               className="absolute -bottom-6 right-4 flex items-center gap-3 rounded-card bg-white p-4 pr-5 shadow-card-hover ring-1 ring-ink/5 sm:-right-4 lg:-right-8"
             >
-              <DiamondMark className="h-9 w-auto" />
+              <BrandMark className="h-9 w-auto" />
               <p className="leading-tight">
                 <span className="block text-xs font-medium text-slate">
                   Em Salto desde

@@ -18,18 +18,16 @@ const FOTO_HERO = process.argv[2] ?? lojaTs.match(/heroFoto: \{\s*src: "\/([^"]+
 
 /* ---------- marca da logo (mesma geometria de components/ui/Logo.tsx) ---------- */
 const MARCA = {
-  contorno: "10.5,1.5 37.5,1.5 46.5,11.5 24,35.5 1.5,11.5",
-  cintura: "M1.5 11.5H46.5",
-  facetas: "M10.5 1.5L17 11.5L24 1.5L31 11.5L37.5 1.5M17 11.5L24 35.5L31 11.5",
+  margens: "M2 36L20.5 2M46 36L27.5 2",
+  faixa: "M24 35.5V29M24 24.5V19.5M24 15.5V12M24 8.5V6.5",
 };
 
 /** Marca com largura `w` posicionada em (ox, oy); viewBox original -1 -0.5 50 39 */
 const marcaSvg = (w, ox, oy, cor = "#2D6A53") => {
   const k = w / 50;
   return `<g transform="translate(${ox + k} ${oy + 0.5 * k}) scale(${k})" fill="none" stroke="${cor}" stroke-linejoin="round" stroke-linecap="round">
-    <polygon points="${MARCA.contorno}" stroke-width="3"/>
-    <path d="${MARCA.cintura}" stroke-width="3"/>
-    <path d="${MARCA.facetas}" stroke-width="2"/></g>`;
+    <path d="${MARCA.margens}" stroke-width="3.2"/>
+    <path d="${MARCA.faixa}" stroke-width="2.6"/></g>`;
 };
 
 const FONTE = "Montserrat, 'Segoe UI', Arial, sans-serif";
@@ -51,7 +49,7 @@ async function og() {
     <rect width="1200" height="630" fill="#0E1217"/>
     <rect width="1200" height="630" fill="url(#g)"/>
     ${marcaSvg(92, 72, 76, "#53B590")}
-    <text x="182" y="112" font-family="${FONTE}" font-size="34" font-weight="800" letter-spacing="3" fill="#E9ECEE">QUILATE</text>
+    <text x="182" y="112" font-family="${FONTE}" font-size="34" font-weight="800" letter-spacing="3" fill="#E9ECEE">AVAL</text>
     <text x="184" y="146" font-family="${FONTE}" font-size="17" font-weight="600" letter-spacing="9" fill="#9AA3AB">VEÍCULOS</text>
     <text x="72" y="268" font-family="${FONTE}" font-size="58" font-weight="800" fill="#ffffff">Seminovos com</text>
     <text x="72" y="336" font-family="${FONTE}" font-size="58" font-weight="800" fill="#53B590">procedência</text>

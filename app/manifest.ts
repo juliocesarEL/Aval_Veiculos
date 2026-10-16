@@ -4,7 +4,7 @@ import { loja } from "@/data/loja";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: loja.nome,
-    short_name: "Quilate",
+    short_name: "Aval",
     description: loja.descricao,
     start_url: "/",
     display: "standalone",

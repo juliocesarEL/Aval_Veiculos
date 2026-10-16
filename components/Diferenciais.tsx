@@ -49,7 +49,7 @@ export function Diferenciais() {
         <SectionHeading
           id="diferenciais-titulo"
           tom="escuro"
-          eyebrow="Por que a Quilate"
+          eyebrow="Por que a Aval"
           titulo="O que a gente confere para você não precisar desconfiar"
           descricao="Comprar seminovo não precisa ser uma aposta. Estes são os quatro compromissos que valem para todo carro da loja."
         />
@@ -62,7 +62,7 @@ export function Diferenciais() {
               style={{ "--d": `${i * 110}ms` } as React.CSSProperties}
               className="spotlight rounded-card border border-white/10 bg-white/[0.03] p-6 transition-colors duration-500 hover:bg-white/[0.05] sm:p-7"
             >
-              <div className="gem-tile flex size-14 items-center justify-center rounded-xl bg-linear-to-br from-primary-light to-primary-dark shadow-[0_10px_30px_-8px_rgb(45_106_83/0.8)]">
+              <div className="icon-tile flex size-14 items-center justify-center rounded-xl bg-linear-to-br from-primary-light to-primary-dark shadow-[0_10px_30px_-8px_rgb(45_106_83/0.8)]">
                 <Icone aria-hidden="true" className="size-6 text-white" />
               </div>
               <h3 className="mt-7 text-h3 font-bold text-white">{titulo}</h3>

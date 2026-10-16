@@ -79,9 +79,12 @@
   }
 
   .sheen,
-  .twinkle,
   .pulse-ring {
     display: none;
+  }
+
+  .lane-dash {
+    animation: none;
   }
 
   .marquee-track {

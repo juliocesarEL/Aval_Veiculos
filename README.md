@@ -1,10 +1,10 @@
-# Quilate Veículos · Landing page
+# Aval Veículos · Landing page
 
-[![CI](https://github.com/juliocesarEL/Quilate_Veiculos/actions/workflows/ci.yml/badge.svg)](https://github.com/juliocesarEL/Quilate_Veiculos/actions/workflows/ci.yml)
+[![CI](https://github.com/juliocesarEL/Aval_Veiculos/actions/workflows/ci.yml/badge.svg)](https://github.com/juliocesarEL/Aval_Veiculos/actions/workflows/ci.yml)
 
 Landing page para uma revenda de carros seminovos. O objetivo da página é um só: **gerar contato pelo WhatsApp**. Cada carro, formulário e botão abre uma conversa com a mensagem já escrita.
 
-> **Projeto de demonstração.** A Quilate Veículos é uma loja fictícia: nome, logo, endereço, pessoas, depoimentos e estoque são inventados. Os botões de WhatsApp e Instagram levam aos contatos da [Risen Studio](https://www.instagram.com/risenstudio.dev/), autora do projeto. As fotos são do [Pexels](https://www.pexels.com/license/) (veja [Créditos](#créditos)).
+> **Projeto de demonstração.** A Aval Veículos é uma loja fictícia: nome, logo, endereço, pessoas, depoimentos e estoque são inventados. Os botões de WhatsApp e Instagram levam aos contatos da [Risen Studio](https://www.instagram.com/risenstudio.dev/), autora do projeto. As fotos são do [Pexels](https://www.pexels.com/license/) (veja [Créditos](#créditos)).
 
 ![Hero no desktop](docs/screenshots/desktop-hero.webp)
 
@@ -167,7 +167,7 @@ Fotos do [Pexels](https://www.pexels.com/license/), de uso gratuito inclusive co
 
 ## Licença
 
-O código está sob a [licença MIT](LICENSE). As fotos em `public/` são do Pexels e seguem a [licença do Pexels](https://www.pexels.com/license/); a marca Quilate Veículos é fictícia.
+O código está sob a [licença MIT](LICENSE). As fotos em `public/` são do Pexels e seguem a [licença do Pexels](https://www.pexels.com/license/); a marca Aval Veículos é fictícia.
 
 ## Autor
 

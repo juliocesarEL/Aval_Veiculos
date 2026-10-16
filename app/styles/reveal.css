@@ -39,8 +39,8 @@ html.js [data-reveal="clip"].is-in > * {
   clip-path: inset(-4rem);
 }
 
-/* Linha "lapidada" sob os títulos de seção: cresce da esquerda ao aparecer */
-.facet-rule {
+/* Linha de destaque sob os títulos de seção: cresce da esquerda ao aparecer */
+.accent-rule {
   display: block;
   height: 3px;
   width: 4.5rem;
@@ -49,11 +49,11 @@ html.js [data-reveal="clip"].is-in > * {
   transform-origin: left;
 }
 
-html.js [data-reveal] .facet-rule {
+html.js [data-reveal] .accent-rule {
   transform: scaleX(0);
   transition: transform 1.2s var(--ease-out-expo) 0.25s;
 }
 
-html.js [data-reveal].is-in .facet-rule {
+html.js [data-reveal].is-in .accent-rule {
   transform: scaleX(1);
 }

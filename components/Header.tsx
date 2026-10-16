@@ -197,7 +197,7 @@ export function Header() {
                   className="flex min-h-14 items-center justify-between py-3 font-display text-2xl font-bold text-white short:min-h-11 short:text-lg"
                 >
                   {item.rotulo}
-                  <span aria-hidden="true" className="size-2 rotate-45 bg-primary-light" />
+                  <span aria-hidden="true" className="size-2 rounded-full bg-primary-light" />
                 </a>
               </li>
             ))}

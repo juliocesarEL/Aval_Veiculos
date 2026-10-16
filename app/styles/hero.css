@@ -1,7 +1,7 @@
 /* ============================================================
    Hero: abertura da página
    Título palavra por palavra, textos sobem, checklist marca em sequência.
-   A foto e o diamante ficam parados; só o reflexo e as cintilações se movem.
+   A foto e a marca ficam paradas; só o reflexo e a faixa da estrada se movem.
    ============================================================ */
 
 @keyframes word-rise {
@@ -41,7 +41,7 @@
   }
 }
 
-/* ---------- Diamante da marca: reflexo e cintilações ---------- */
+/* ---------- Marca: reflexo e faixa central da estrada ---------- */
 
 @keyframes sheen {
   0% {
@@ -57,26 +57,20 @@
   animation: sheen 6.5s cubic-bezier(0.45, 0, 0.2, 1) 1.9s infinite both;
 }
 
-@keyframes twinkle {
+/* Cada traço da faixa acende em sequência, do primeiro plano ao horizonte (atraso em --d) */
+@keyframes lane-dash {
   0%,
+  40%,
   100% {
-    opacity: 0;
-    transform: scale(0) rotate(0deg);
+    opacity: 0.4;
   }
-  45% {
+  15% {
     opacity: 1;
-    transform: scale(1) rotate(90deg);
-  }
-  60% {
-    opacity: 0;
-    transform: scale(0.2) rotate(140deg);
   }
 }
 
-.twinkle {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: twinkle 3.6s ease-in-out infinite both;
+.lane-dash {
+  animation: lane-dash 2.8s ease-in-out infinite both;
   animation-delay: var(--d, 0s);
 }
 
@@ -129,7 +123,7 @@
 
 /* Animações contínuas só começam ao fim da abertura (.ready, posta pelo RevealObserver),
    para não disputar a thread principal com a primeira pintura. */
-html:not(.ready) :is(.marquee-track, .sheen, .twinkle, .pulse-ring) {
+html:not(.ready) :is(.marquee-track, .sheen, .lane-dash, .pulse-ring) {
   animation-play-state: paused;
 }
 
